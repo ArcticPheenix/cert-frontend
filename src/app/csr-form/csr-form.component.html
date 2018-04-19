@@ -3,21 +3,26 @@
     <h1>Certificate Signing Request Form</h1>
     <form (ngSubmit)="onSubmit()" #csrForm="ngForm">
       {{diagnostic}}
+      
       <div class="form-group">
         <label for="country">Country</label>
         <input type="text" class="form-control" id="name" required
               [(ngModel)]="certData.country" name="country"
-              #name="ngModel">
+              #country="ngModel"
+              #spy>
+        <br>TODO: Remove This: {{spy.className}}
         <div [hidden]="country.valid || country.pristine" class="alert alert-danger">
           Country is required
         </div>
       </div>
 
       <div class="form-group">
-        <label for="name">State</label>
+        <label for="state">State</label>
         <input type="text" class="form-control" id="name" required
               [(ngModel)]="certData.state" name="state"
-              #state="ngModel">
+              #state="ngModel"
+              #spy>
+        <br>TODO: Remove This: {{spy.className}}
         <div [hidden]="state.valid || state.pristine" class="alert alert-danger">
           State is required
         </div>
@@ -27,7 +32,9 @@
         <label for="city">City</label>
         <input type="text" class="form-control" id="name" required
               [(ngModel)]="certData.city" name="city"
-              #city="ngModel">
+              #city="ngModel"
+              #spy>
+        <br>TODO: Remove This: {{spy.className}}
         <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
           City is required
         </div>
@@ -37,7 +44,9 @@
         <label for="organization">Organization</label>
         <input type="text" class="form-control" id="name" required
               [(ngModel)]="certData.organization" name="organization"
-              #organization="ngModel">
+              #organization="ngModel"
+              #spy>
+        <br>TODO: Remove This: {{spy.className}}
         <div [hidden]="organization.valid || organization.pristine" class="alert alert-danger">
           Organization is required
         </div>
@@ -46,8 +55,10 @@
       <div class="form-group">
         <label for="organizationalUnit">Organizational Unit</label>
         <input type="text" class="form-control" id="name" required
-              [(ngModel)]="certData.organizationUnit" name="organizationalUnit"
-              #organizationalUnit="ngModel">
+              [(ngModel)]="certData.organizationalUnit" name="organizationalUnit"
+              #organizationalUnit="ngModel"
+              #spy>
+        <br>TODO: Remove This: {{spy.className}}
         <div [hidden]="organizationalUnit.valid || organizationalUnit.pristine" class="alert alert-danger">
           Organizational Unit is required
         </div>
@@ -57,7 +68,9 @@
         <label for="commonName">Common Name</label>
         <input type="text" class="form-control" id="name" required
               [(ngModel)]="certData.commonName" name="commonName"
-              #commonName="ngModel">
+              #commonName="ngModel"
+              #spy>
+        <br>TODO: Remove This: {{spy.className}}
         <div [hidden]="commonName.valid || commonName.pristine" class="alert alert-danger">
           Common Name is required
         </div>
@@ -67,7 +80,9 @@
         <label for="emailAddress">Email Address</label>
         <input type="text" class="form-control" id="name" required
               [(ngModel)]="certData.emailAddress" name="emailAddress"
-              #emailAddress="ngModel">
+              #emailAddress="ngModel"
+              #spy>
+        <br>TODO: Remove This: {{spy.className}}
         <div [hidden]="emailAddress.valid || emailAddress.pristine" class="alert alert-danger">
           Email Address is required
         </div>
@@ -77,7 +92,9 @@
         <label for="days">Valid for how many days?</label>
         <input type="text" class="form-control" id="name" required
               [(ngModel)]="certData.days" name="days"
-              #city="ngModel">
+              #days="ngModel"
+              #spy>
+        <br>TODO: Remove This: {{spy.className}}
         <div [hidden]="days.valid || days.pristine" class="alert alert-danger">
           730 days (two years) is the default value if left empty.
         </div>

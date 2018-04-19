@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CertData } from '../certdata';
 
 @Component({
@@ -6,7 +6,7 @@ import { CertData } from '../certdata';
   templateUrl: './csr-form.component.html',
   styleUrls: ['./csr-form.component.css']
 })
-export class CsrFormComponent implements OnInit {
+export class CsrFormComponent {
   certData = new CertData('', '', '', '', '', '', '', '');
   certSubject: string;
   submitted = false;
@@ -14,9 +14,7 @@ export class CsrFormComponent implements OnInit {
 
   get diagnostic() { return JSON.stringify(this.certData); }
 
-  constructor() {
-   }
-
-  ngOnInit() {
+  newCert() {
+    this.certData = new CertData('', '', '', '', '', '', '', '');
   }
 }
