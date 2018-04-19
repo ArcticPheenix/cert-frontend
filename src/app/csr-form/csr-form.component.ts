@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CertData } from '../certdata';
 
 @Component({
   selector: 'app-csr-form',
@@ -6,18 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./csr-form.component.css']
 })
 export class CsrFormComponent implements OnInit {
-  private Country: string;
-  private State: string;
-  private City: string;
-  private Organization: string;
-  private OrganizationalUnit: string;
-  private CommonName: string;
-  private EmailAddress: string;
-  private Days: string;
-  private Subject: string;
+  certData = new CertData('', '', '', '', '', '', '', '');
+  certSubject: string;
+  submitted = false;
+  onSubmit() { this.submitted = true; }
+
+  get diagnostic() { return JSON.stringify(this.certData); }
 
   constructor() {
-    this.Days = '730';
    }
 
   ngOnInit() {
