@@ -9,10 +9,10 @@ import { MessageService } from './message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   })
 };
-const certServerUrl = 'http://localhost:8080';
+const certServerUrl = 'http://localhost:8080/gencert';
 
 @Injectable()
 export class CertService {
@@ -42,11 +42,12 @@ export class CertService {
   createCert(cert: CertData): Observable<CertData> {
     return this.http.post<CertData>(certServerUrl, cert, httpOptions)
       .pipe(
-        tap((cert: CertData) => this.log(`Created cert with the following values:
+        tap(certificate => this.log(`Created cert with the following values:
         C=${cert.country}, ST=${cert.state}, L=${cert.city},
         O=${cert.organization}, OU=${cert.organizationalUnit}, CN=${cert.commonName},
         emailAddress=${cert.emailAddress}, days=${cert.days}`)),
         catchError(this.handleError('createCert', cert))
       );
+    // return this.http.post<CertData>(certServerUrl, cert, httpOptions).pipe(catchError(this.handleError('createCert', cert)));
   }
 }
