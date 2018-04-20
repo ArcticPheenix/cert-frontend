@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CsrFormComponent } from './csr-form/csr-form.component';
+import { CertService } from './cert.service';
+import { MessageService } from './message.service';
 
 
 @NgModule({
@@ -16,10 +18,10 @@ import { CsrFormComponent } from './csr-form/csr-form.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CertService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
